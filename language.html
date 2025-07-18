@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose Language</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #ffe4e1, #fff);
+  text-align: center;
+}
+
+.container {
+  margin: 30px auto;
+}
+
+h1 {
+  color: #d6336c;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.card {
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.card-front {
+  color: #d6336c;
+}
+
+.card-front img {
+  width: 100%;
+  height: auto;
+  flex-grow: 1;
+  object-fit: cover;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 20px;
+}
+
+.card-back h2 {
+  margin: 0;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Choose Your Language</h1>
+
+    <div class="cards">
+      <a href="portfolio-jap.html" class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="images/japanese-lady.jpg" alt="Japanese Lady">
+            <h2>こんにちは (Konnichiwa)</h2>
+          </div>
+          <div class="card-back">
+            <h2>Japanese</h2>
+          </div>
+        </div>
+      </a>
+
+      <a href="portfolio-eng.html" class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="images/hello-pic.jpg" alt="Hello">
+            <h2>Hello</h2>
+          </div>
+          <div class="card-back">
+            <h2>English</h2>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Resume</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(-45deg, #ffe4e1, #fff, #f8f9fa, #ffe4e1);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.resume-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  color: #d6336c;
+  font-size: 2.5rem;
+}
+
+.subtitle.typing {
+  color: #b52a5e;
+  font-size: 1.2rem;
+  border-right: .1em solid #d6336c;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 3s steps(40, end) forwards, blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from {width: 0;}
+  to {width: 100%;}
+}
+
+@keyframes blink-caret {
+  from, to {border-color: transparent;}
+  50% {border-color: #d6336c;}
+}
+
+h2 {
+  color: #d6336c;
+  margin-top: 20px;
+  border-bottom: 2px solid #f3b1c4;
+  padding-bottom: 5px;
+}
+
+.resume-cards {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.resume-cards::-webkit-scrollbar {
+  height: 6px;
+}
+
+.resume-cards::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.resume-card {
+  flex: 0 0 200px;
+  height: 250px;
+  perspective: 1000px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ffe4e1,
+    #ffe4e1 10px,
+    #fff 10px,
+    #fff 20px
+  );
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.resume-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.resume-card:hover .resume-card-inner {
+  transform: rotateY(180deg);
+}
+
+.resume-card-front, .resume-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.resume-card-front h3 {
+  color: #2c3e50;
+}
+
+.resume-card-back {
+  transform: rotateY(180deg);
+  background-color: #f8f8f8;
+}
+
+.resume-card-back a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #2c3e50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  font-size: 0.85rem;
+}
+
+.resume-card-back a:hover {
+  background-color: #1a252f;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 40px;
+  color: #b52a5e;
+  text-decoration: none;
+}
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 15px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: #2c3e50;
+  transition: transform 0.3s ease;
+}
+
+.skill-item i {
+  font-size: 40px;
+  color: #d6336c;
+  margin-bottom: 5px;
+}
+
+.skill-item:hover {
+  transform: scale(1.1);
+}
+
+</style>
+</head>
+
+<body>
+<div class="resume-container">
+  <header>
+    <h1>Arya</h1>
+    <p class="subtitle typing">Aspiring Developer | Teamwork & Leadership | Lifelong Learner</p>
+  </header>
+
+  <section class="summary">
+    <h2>Professional Summary</h2>
+    <p>
+     Eager to innovate, learn, and deliver meaningful web solutions, combining technical skill with a constant drive for improvement.</p>
+  </section>
+
+  <section class="education">
+    <h2>Education</h2>
+    <p>Bachelor of Technology in Computer Science — Ongoing</p>
+    <p>St Aloysius pre university - 2020-22</p>
+    <p>Sharada Vidyalaya - 2008-20</p>
+  </section>
+
+  <section class="projects">
+    <h2>Projects</h2>
+<div class="project">
+  <h3>🧾 STOCS – Stationery Inventory System</h3>
+  <p>
+    Smart inventory and billing system for Sahyadri College’s stationery store.
+  </p>
+  <ul>
+    <li><strong>Stack:</strong> React, Node.js, PostgreSQL</li>
+    <li><strong>Features:</strong> Real-time stock tracking, QR billing, online orders, low-stock alerts</li>
+  </ul>
+</div>
+
+<div class="project">
+  <h3>🌍 Cross-Border Remittance App</h3>
+  <p>
+    Secure money transfer app using blockchain and fiat integration.
+  </p>
+  <ul>
+    <li><strong>Stack:</strong> React Native, Node.js, Solidity, Web3.js, Transak SDK</li>
+    <li><strong>Features:</strong> Crypto-to-fiat transfers, JWT auth, transparent transaction logs</li>
+  </ul>
+</div>
+ <section class="skills">
+  <h2 style="text-align: left;">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-item">
+      <i class="fab fa-html5"></i>
+      <span>HTML</span>
+    </div>
+    <div class="skill-item">
+      <i class="fab fa-css3-alt"></i>
+      <span>CSS</span>
+    </div>
+    <div class="skill-item">
+      <i class="fab fa-js-square"></i>
+      <span>JavaScript</span>
+    </div>
+    <div class="skill-item">
+      <i class="fab fa-node"></i>
+      <span>Node.js</span>
+    </div>
+    <div class="skill-item">
+      <i class="fab fa-react"></i>
+      <span>React</span>
+    </div>
+    <div class="skill-item">
+  <i class="fab fa-python"></i>
+  <span>Python</span>
+</div>
+
+<div class="skill-item">
+  <i class="fas fa-database"></i>
+  <span>SQL</span>
+</div>
+
+<div class="skill-item">
+  <i class="fas fa-leaf"></i>
+  <span>MongoDB</span>
+</div>
+  </div>
+</section>
+  <section class="certifications">
+    <h2>Certifications</h2>
+    <div class="resume-cards">
+      <div class="resume-card">
+        <div class="resume-card-inner">
+          <div class="resume-card-front">
+            <h3>Full stack course completion</h3>
+          </div>
+          <div class="resume-card-back">
+            <a href="https://drive.google.com/file/d/10ftS3D0thci9iskS2-q1k4Ww0KDOHati/view?usp=sharing">View</a>
+          </div>
+        </div>
+      </div>
+      <div class="resume-card">
+        <div class="resume-card-inner">
+          <div class="resume-card-front">
+            <h3>Top 10 Performer SIP 2023</h3>
+          </div>
+          <div class="resume-card-back">
+            <a href="https://drive.google.com/file/d/1wQ83UlyGWlbdcffvhUEgiggMR33XyDNR/view?usp=sharing">View</a>
+          </div>
+        </div>
+      </div>
+      <div class="resume-card">
+        <div class="resume-card-inner">
+          <div class="resume-card-front">
+            <h3>Project Pitch – CodeBlaze, 3rd Position</h3>
+          </div>
+          <div class="resume-card-back">
+            <a href="https://drive.google.com/file/d/1BQARD3A0xRIiynwLNm8JCwoqPu1xJI55/view?usp=sharing">View</a>
+          </div>
+        </div>
+      </div>
+      <div class="resume-card">
+        <div class="resume-card-inner">
+          <div class="resume-card-front">
+            <h3>Google Cloud Computing & Generative AI</h3>
+          </div>
+          <div class="resume-card-back">
+            <a href="https://drive.google.com/file/d/1yx4MLdxA1kitJXH3KdlB4MrrW5jVaReT/view?usp=sharing">View</a>
+          </div>
+        </div>
+      </div>
+      <div class="resume-card">
+        <div class="resume-card-inner">
+          <div class="resume-card-front">
+            <h3>Certificate of Leadership</h3>
+          </div>
+          <div class="resume-card-back">
+            <a href="https://drive.google.com/file/d/1DAOBNkmTP0TCC6fTdh3pqlDYaYa-PCrZ/view?usp=sharing">View</a>
+          </div>
+        </div>
+      </div>
+      <div class="resume-card">
+        <div class="resume-card-inner">
+          <div class="resume-card-front">
+            <h3>SIH Grand Finale</h3>
+          </div>
+          <div class="resume-card-back">
+            <a href="https://drive.google.com/file/d/1LE5eaI5HG3YiwHk-9B50rcu8BjWshsK-/view?usp=sharing">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experiences">
+    <h2>Experiences & Internships</h2>
+    <div class="resume-cards">
+      <div class="resume-card">
+        <div class="resume-card-inner">
+          <div class="resume-card-front">
+            <h3>3D Modeling Internship</h3>
+          </div>
+          <div class="resume-card-back">
+            <a href="https://drive.google.com/file/d/1P5DcAHPAY2mMqAxPpFyOq-4pE_18NJux/view?usp=drive_link">View</a>
+          </div>
+        </div>
+      </div>
+      <div class="resume-card">
+        <div class="resume-card-inner">
+          <div class="resume-card-front">
+            <h3>Networking Lead & Web Developer</h3>
+          </div>
+          <div class="resume-card-back">
+            <a href="https://drive.google.com/file/d/1Sg3B6RLVeGkwRx_n8rK__mp8K27z16N-/view?usp=sharing">View</a>
+          </div>
+        </div>
+      </div>
+      <div class="resume-card">
+        <div class="resume-card-inner">
+          <div class="resume-card-front">
+            <h3>NGO Teaching Volunteer</h3>
+          </div>
+          <div class="resume-card-back">
+            <a href="https://drive.google.com/file/d/12S17WlosSJ6e8LjnjiRpPiXyfPgWGSRC/view?usp=sharing">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="language-certifications">
+    <h2>Language Certifications</h2>
+    <div class="resume-cards">
+      <div class="resume-card">
+        <div class="resume-card-inner">
+          <div class="resume-card-front">
+            <h3>NAT N5</h3>
+          </div>
+          <div class="resume-card-back">
+            <a href="https://drive.google.com/file/d/1_Lgjmv-EzGq2PYyPyzywpIeGVJkPsLeV/view?usp=sharing">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </footer>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('section').forEach((section, i) => {
+    setTimeout(() => section.classList.add('visible'), i * 200);
+  });
+});
+</script>
+</body>
+</html>
