@@ -6,133 +6,120 @@
 <title>About Me</title>
 <style>
   body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #ffe4e1, #fffafc);
-    overflow-x: hidden;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ffe4e1, #fffafc);
+  overflow-x: hidden;
+}
+.container {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+  animation: openBook 1s ease forwards;
+  position: relative;
+}
+@keyframes openBook {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+.left, .right {
+  width: 50vw;
+  padding: 40px 30px;
+  color: #333;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+/* Diagonal clipping */
+.left {
+  background: #fff;
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+  text-align: left;
+  padding: 40px 150px 40px 30px;
+}
+.right {
+  background: #fff0f4;
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+  text-align: left;
+  color: #800040;
+  padding: 40px 30px 40px 150px;
+}
+.left h1, .right h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #d6336c;
+  letter-spacing: 1px;
+}
+.left p, .right p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.center-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(214, 51, 108, 0.6);
+  border: 8px solid #f3b1c4;
+  background: white;
+  z-index: 10;
+}
+.center-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.button-container {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+#next-btn {
+  padding: 12px 24px;
+  background-color: #d6336c;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(214, 51, 108, 0.4);
+}
+#next-btn:hover {
+  background-color: #b52a5e;
+  transform: scale(1.05);
+}
+
+/* Sakura */
+.sakura {
+  position: fixed;
+  top: -50px;
+  width: 30px;
+  height: 30px;
+background: url('images/sakura.png') no-repeat center/contain;
+  opacity: 0.8;
+  animation: fall linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+@keyframes fall {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: 1;
   }
-  .container {
-    display: flex;
-    min-height: 100vh;
-    overflow: hidden;
-    animation: openBook 1s ease forwards;
-    position: relative;
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
   }
-  @keyframes openBook {
-    0% { transform: scaleX(0); }
-    100% { transform: scaleX(1); }
-  }
-  .left, .right {
-    width: 50vw;
-    padding: 40px 30px;
-    color: #333;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-  /* Diagonal clipping */
-  .left {
-    background: #fff;
-    clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
-    text-align: left;
-     padding: 40px 150px 40px 30px;
-  }
-  .right {
-    background: #fff0f4;
-    clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
-    text-align: left;
-    color: #800040;
-    padding: 40px 30px 40px 150px;
-  }
-  .left h1, .right h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #d6336c;
-    letter-spacing: 1px;
-  }
-  .left p, .right p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
-  .center-img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(214, 51, 108, 0.6);
-    border: 8px solid #f3b1c4;
-    background: white;
-    z-index: 10;
-  }
-  .center-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .button-container {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 20;
-  }
-  #next-btn {
-    padding: 12px 24px;
-    background-color: #d6336c;
-    color: #fff;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(214, 51, 108, 0.4);
-  }
-  #next-btn:hover {
-    background-color: #b52a5e;
-    transform: scale(1.05);
-  }
-  /* Responsive */
-  @media (max-width: 900px) {
-    .container {
-      flex-direction: column;
-      animation: none;
-    }
-    .left, .right {
-      clip-path: none;
-      width: 100vw;
-      padding: 20px 15px;
-      text-align: center;
-    }
-    .right {
-      color: #d6336c;
-      background: #fff;
-      margin-top: 20px;
-    }
-    .center-img {
-      position: relative;
-      top: auto;
-      left: auto;
-      transform: none;
-      margin: 0 auto 20px;
-      box-shadow: none;
-      border: 6px solid #d6336c;
-      width: 180px;
-      height: 180px;
-    }
-    .button-container {
-      position: relative;
-      bottom: auto;
-      left: auto;
-      transform: none;
-      margin-top: 20px;
-    }
-  }
+}
 </style>
 </head>
 <body>
@@ -169,12 +156,12 @@
       <button id="next-btn">Get to know me more →</button>
     </div>
   </div>
-
-  <script>
-    document.getElementById("next-btn").addEventListener("click", () => {
-      window.location.href = "language.html";
-    });
-  </script>
+<script>
+  document.getElementById("next-btn").addEventListener("click", () => {
+    window.location.href = "language.html";
+  });
+</script>
+<script src="js/main.js"></script>
 </body>
 </html>
 
