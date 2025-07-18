@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>About Me</title>
 <style>
-  body {
+body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #ffe4e1, #fffafc);
   overflow-x: hidden;
 }
+
 .container {
   display: flex;
   min-height: 100vh;
@@ -18,27 +19,29 @@
   animation: openBook 1s ease forwards;
   position: relative;
 }
+
 @keyframes openBook {
   0% { transform: scaleX(0); }
   100% { transform: scaleX(1); }
 }
+
 .left, .right {
-  width: 50vw;
+  width: 50%;
   padding: 40px 30px;
   color: #333;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
-/* Diagonal clipping */
+
 .left {
   background: #fff;
   clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
   text-align: left;
   padding: 40px 150px 40px 30px;
 }
+
 .right {
   background: #fff0f4;
   clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
@@ -46,16 +49,19 @@
   color: #800040;
   padding: 40px 30px 40px 150px;
 }
+
 .left h1, .right h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #d6336c;
   letter-spacing: 1px;
 }
+
 .left p, .right p {
   font-size: 1.1rem;
   line-height: 1.6;
 }
+
 .center-img {
   position: absolute;
   top: 50%;
@@ -70,11 +76,13 @@
   background: white;
   z-index: 10;
 }
+
 .center-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .button-container {
   position: absolute;
   bottom: 40px;
@@ -82,6 +90,7 @@
   transform: translateX(-50%);
   z-index: 20;
 }
+
 #next-btn {
   padding: 12px 24px;
   background-color: #d6336c;
@@ -93,6 +102,7 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
   box-shadow: 0 4px 8px rgba(214, 51, 108, 0.4);
 }
+
 #next-btn:hover {
   background-color: #b52a5e;
   transform: scale(1.05);
@@ -104,12 +114,13 @@
   top: -50px;
   width: 30px;
   height: 30px;
-background: url('images/sakura.png') no-repeat center/contain;
+  background: url('images/sakura.png') no-repeat center/contain;
   opacity: 0.8;
   animation: fall linear infinite;
   pointer-events: none;
   z-index: 1;
 }
+
 @keyframes fall {
   0% {
     transform: translateY(-50px) rotate(0deg);
@@ -118,6 +129,39 @@ background: url('images/sakura.png') no-repeat center/contain;
   100% {
     transform: translateY(110vh) rotate(360deg);
     opacity: 0;
+  }
+}
+
+/* 📱 Mobile Fix */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    width: 100%;
+    clip-path: none;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .center-img {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 20px auto;
+    width: 180px;
+    height: 180px;
+    border: 6px solid #f3b1c4;
+  }
+
+  .button-container {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 20px auto;
   }
 }
 </style>
