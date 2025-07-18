@@ -14,8 +14,8 @@ body {
 
 .container {
   display: flex;
+  flex-wrap: wrap;
   min-height: 100vh;
-  overflow: hidden;
   animation: openBook 1s ease forwards;
   position: relative;
 }
@@ -26,8 +26,8 @@ body {
 }
 
 .left, .right {
-  width: 50%;
-  padding: 40px 30px;
+  flex: 1 1 50%;
+  padding: 40px;
   color: #333;
   box-sizing: border-box;
   display: flex;
@@ -39,7 +39,6 @@ body {
   background: #fff;
   clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
   text-align: left;
-  padding: 40px 150px 40px 30px;
 }
 
 .right {
@@ -47,7 +46,6 @@ body {
   clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
   text-align: left;
   color: #800040;
-  padding: 40px 30px 40px 150px;
 }
 
 .left h1, .right h1 {
@@ -200,6 +198,7 @@ body {
       <button id="next-btn">Get to know me more →</button>
     </div>
   </div>
+
 <script>
   document.getElementById("next-btn").addEventListener("click", () => {
     window.location.href = "language.html";
@@ -208,6 +207,4 @@ body {
 <script src="js/main.js"></script>
 </body>
 </html>
-
-
 
